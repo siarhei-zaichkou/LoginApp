@@ -43,6 +43,11 @@ class LoginViewController: UIViewController {
         userNameTF.text = ""
         passwordTF.text = ""
     }
+    
+    // Hide keyboard when Done button is tapped
+    @IBAction func done(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
 }
 
 extension LoginViewController {
