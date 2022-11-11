@@ -9,22 +9,25 @@ class UserViewController: UIViewController {
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var positionLabel: UILabel!
     
-    var user: String!
-    var person: Person!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userPhotoImageView.image = UIImage(named: "jonesy")
-        title = user
-        nameLabel.text = person.name
-        surnameLabel.text = person.surname
-        cityLabel.text = person.city
-        positionLabel.text = person.position
+        setupUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let infoVC = segue.destination as? InfoViewController else { return }
-        infoVC.info = person.info
+        infoVC.user = user
+    }
+    
+    private func setupUI() {
+        userPhotoImageView.image = UIImage(named: user.person.photo)
+        title = user.login
+        nameLabel.text = user.person.name
+        surnameLabel.text = user.person.surname
+        cityLabel.text = user.person.city
+        positionLabel.text = user.person.position
     }
 }

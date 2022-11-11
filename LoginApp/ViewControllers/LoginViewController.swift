@@ -16,12 +16,10 @@ class LoginViewController: UIViewController {
         
         for viewController in viewControllers {
             if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.user = user.login
+                welcomeVC.user = user
             } else if let navigationVC = viewController as? UINavigationController {
                 guard let userVC = navigationVC.topViewController as? UserViewController else { return }
-                userVC.user = user.login
-                userVC.person = user.person
-                // пароль дальше не передаю намеренно
+                userVC.user = user
             }
         }
     }

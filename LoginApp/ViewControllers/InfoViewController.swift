@@ -5,11 +5,11 @@ class InfoViewController: UIViewController {
 
     @IBOutlet var aboutTextView: UITextView!
     
-    var info: String!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        aboutTextView.text = info
+        aboutTextView.text = user.person.info
     }
 }
